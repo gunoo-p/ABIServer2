@@ -23,7 +23,9 @@ public:
 // 재정의입니다.
 public:
 	virtual BOOL InitInstance();
+
 	int wsFlag;
+	
 	CFont m_font;
 // 구현입니다.
 

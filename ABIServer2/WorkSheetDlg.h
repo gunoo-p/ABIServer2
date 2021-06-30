@@ -23,7 +23,20 @@ public:
 	virtual BOOL OnInitDialog();
 
 	CListCtrl m_pdtList;
-	void CreateList();
+	CListCtrl m_soldoutList;
+	CListCtrl m_posLoginList;
+	CListCtrl m_mobileLoginList;
+	CListCtrl m_shopInfoList;
+	CListCtrl m_memberList;
+
+	void CreatePdtList();
+	void CreateSoldOutList();
+
+	void CreatePosLoginList();
+	void CreateMobileLoginList();
+	
+	void CreateShopInfoList();
+	void CreateMemberList();
 
 	CFont font;
 	CStatic m_TitleText;

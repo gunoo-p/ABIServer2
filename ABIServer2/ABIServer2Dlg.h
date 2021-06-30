@@ -45,10 +45,8 @@ public:
 
 	void CreateTreeMenu();
 	HTREEITEM pdtRoot, loginRoot, clientRoot, saleRoot;
-	HTREEITEM pdtProduct, pdtSoldout, loginShop, loginMobile, clientShop, clientMobile;
-	HTREEITEM saleShop, saleAll_K, saleAll_M, saleReport_M, saleReport_S;
-	HTREEITEM saleShop_p, saleShop_k, saleShop_m, saleAll_M_reserve, saleAll_M_realtime, saleReport_M_d, saleReport_M_m, saleReport_M_y, saleReport_S_d, saleReport_S_m, saleReport_S_y;
-	HTREEITEM saleShop_m_reserve, saleShop_m_realtime;
+	HTREEITEM saleShop, saleAll_K, saleAll_M, saleReport_M, saleReport_S, saleShop_m;
+
 
 	HTREEITEM hTreeItem;
 	CString SelectTreeMenu;

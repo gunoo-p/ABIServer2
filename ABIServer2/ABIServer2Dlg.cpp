@@ -14,20 +14,15 @@
 
 
 // CABIServer2Dlg 대화 상자
-CABIServer2App* m_App = (CABIServer2App*)AfxGetApp();;
-
 
 CABIServer2Dlg::CABIServer2Dlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_ABISERVER2_DIALOG, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	wsDlg = NULL;
-	pdtRoot = 0;
-	loginRoot = 0;
-	clientRoot = 0;
-	saleRoot = 0;
-	saleShop = 0;
-	saleShop_m = 0;
+	connectDlg = NULL;
+	pdtRoot = 0, loginRoot = 0, clientRoot = 0, saleRoot = 0, saleShop = 0, saleShop_m = 0, saleAll_K = 0, saleAll_M = 0, saleReport_M = 0, saleReport_S = 0;
+	hTreeItem = 0;
 }
 
 void CABIServer2Dlg::DoDataExchange(CDataExchange* pDX)
@@ -101,7 +96,7 @@ HCURSOR CABIServer2Dlg::OnQueryDragIcon()
 }
 void CABIServer2Dlg::Init_WorkSheet()
 {
-	/*if (!wsDlg)
+	if (!wsDlg)
 	{
 		wsDlg = new WorkSheetDlg;
 		wsDlg->Create(IDD_WorkSheetDlg);
@@ -111,7 +106,7 @@ void CABIServer2Dlg::Init_WorkSheet()
 	else 
 	{
 		wsDlg->ShowWindow(true);
-	}*/
+	}
 }
 
 void CABIServer2Dlg::Init_ConnectList()
@@ -200,11 +195,33 @@ void CABIServer2Dlg::OnDblclkTreemenu(NMHDR* pNMHDR, LRESULT* pResult)
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	HTREEITEM SelectTreeMenu = m_TreeMenu.GetSelectedItem();
+
 	if (m_TreeMenu.GetChildItem(SelectTreeMenu) == NULL)
 	{
 		//::MessageBox(NULL, L"D", m_TreeMenu.GetItemText(hItem), MB_OK);
-		if (m_TreeMenu.GetItemText(SelectTreeMenu) == L"제품리스트") {
-			m_App->wsFlag = 1;
+		if (m_TreeMenu.GetItemText(SelectTreeMenu) == L"제품리스트")
+		{
+			wsDlg->CreatePdtList();
+		}
+		else if (m_TreeMenu.GetItemText(SelectTreeMenu) == L"품절리스트")
+		{
+			wsDlg->CreateSoldOutList();
+		}
+		else if (m_TreeMenu.GetItemText(SelectTreeMenu) == L"POS 로그인")
+		{
+			wsDlg->CreatePosLoginList();
+		}
+		else if (m_TreeMenu.GetItemText(SelectTreeMenu) == L"Mobile 로그인")
+		{
+			wsDlg->CreateMobileLoginList();
+		}
+		else if (m_TreeMenu.GetItemText(SelectTreeMenu) == L"지점 정보")
+		{
+			wsDlg->CreateShopInfoList();
+		}
+		else if (m_TreeMenu.GetItemText(SelectTreeMenu) == L"Mobile 회원 정보")
+		{
+			wsDlg->CreateMemberList();
 		}
 	}
 }

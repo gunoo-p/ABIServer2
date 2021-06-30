@@ -12,6 +12,11 @@
 #define IDC_ProductList                 8001
 #define IDC_ConnectPosList              8002
 #define IDC_ConnectMobileList           8003
+#define IDC_SoldOutList                 8004
+#define IDC_POSLoginList                8005
+#define IDC_MobileLoginList             8006
+#define IDC_ShopInfoList				8007
+#define IDC_MemberList					8008
 
 // Next default values for new objects
 // 
